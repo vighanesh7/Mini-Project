@@ -1,0 +1,42 @@
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+
+.navbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1.5rem; background: var(--navy); color: #fff;
+}
+.navbar-brand { color: #fff; text-decoration: none; font-weight: 600; font-size: 1.05rem; }
+.navbar-role { font-size: 0.85rem; opacity: 0.85; }
+
+.app-body { display: flex; flex: 1; }
+
+.sidebar {
+  width: 210px; flex-shrink: 0; padding: 1rem 0.75rem;
+  background: var(--surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 0.25rem;
+}
+.sidebar-link {
+  padding: 0.55rem 0.9rem; border-radius: var(--radius);
+  color: var(--text); text-decoration: none; font-weight: 500;
+}
+.sidebar-link:hover { background: #f1eee5; }
+.sidebar-link.active { background: var(--green); color: #fff; }
+
+.app-main { flex: 1; min-width: 0; padding: 1.5rem; max-width: 1200px; }
+
+.page-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+
+/* Tablet and phone: sidebar becomes a scrolling row under the header */
+@media (max-width: 800px) {
+  .app-body { flex-direction: column; }
+  .sidebar {
+    width: 100%; flex-direction: row; overflow-x: auto;
+    border-right: none; border-bottom: 1px solid var(--border); padding: 0.5rem;
+  }
+  .sidebar-link { white-space: nowrap; }
+  .app-main { padding: 1rem; }
+  .navbar { padding: 0.75rem 1rem; }
+  .navbar-brand { font-size: 0.95rem; }
+}
